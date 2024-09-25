@@ -19,7 +19,7 @@ async def generate_text(request: Request):
         "text-generation", model=model_id, model_kwargs={"torch_dtype": torch.bfloat16}, device_map="auto"
     )
 
-    val = pipeline("Hey how are you doing today?")
+    val = pipeline(message)
     print(val)
 
     return {"response": val}
